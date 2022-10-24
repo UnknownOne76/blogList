@@ -2,23 +2,48 @@ const mong = require('mongoose');
 const Schema = mong.Schema;
 
 const ls = new Schema({
-     blogImg: String, 
-     title: String, 
-     descrip: String, 
-     txt: String,
+     blogImg: {
+      type: String,
+      maxLength: 255,
+      required: true, 
+     },  
+     title:{
+       type: String, 
+       maxLength: 100, 
+       required: true, 
+     },  
+     descrip: {
+      type: String,
+      maxLength: 3000, 
+      required: true
+     },  
+     txt: {
+      type: String,
+      maxLength: 2000, 
+      required: true
+     }, 
      author: {
-        img: String, 
-        name: String, 
-        job: String,
+         type: Schema.ObjectId, 
+         ref: "Users", 
+         required: true, 
      }, 
      comments: [
         {
-          img: String, 
-          name: String, 
-          txt: String, 
+          img: String,
+          name: {
+            type: String, 
+            required: true
+         }, 
+          txt: {
+            type: String, 
+            required: true
+         }, 
         }
      ], 
-     publishedAt: String
+     publishedAt: {
+        type: Date, 
+        required: true
+     }
 }); 
 
 const blogs = mong.model('blogs' , ls); 
