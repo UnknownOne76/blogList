@@ -4,12 +4,12 @@ const Schema = mong.Schema;
 const ls = new Schema({
      blogImg: {
       type: String,
-      maxLength: 255,
+      maxLength: 2000,
       required: true, 
      },  
      title:{
        type: String, 
-       maxLength: 100, 
+       maxLength: 2000, 
        required: true, 
      },  
      descrip: {
