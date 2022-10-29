@@ -27,18 +27,20 @@ mong.connect(url).then(() => {
           res.send(posts);
         }
         else {
-           res.send('reading data.'); 
+           res.send('data not found.');
+           return 0;  
         }
       })
 
     app.get('/spec/:id' , async (req , res) => {
-         if ( req.params['id'].length >= 10) {
            const data = await blogPosts.findOne({_id: req.params['id']}).populate("author");  
-           res.send(data); 
-         }
-         else {
-           return 0;
-         }
+           if ( data ) {
+             res.send(data); 
+           } 
+           else {
+              res.send('Not found.'); 
+              return 0; 
+           }
     })
 
     app.post("/users", async (req, res) => {

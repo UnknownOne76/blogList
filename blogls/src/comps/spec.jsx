@@ -77,7 +77,7 @@ export const SpecPost = () => {
              </div>
              <button onClick={() => window.location.href = '/'} className="p-5"> Go back </button>
              </div>
-          : <div> Loading data... </div>} 
+          : <div> Not found. </div>} 
           </div>
 };
 
