@@ -4,7 +4,8 @@ const user = new Schema({
     name: String,
     email: {
         type: String, 
-        unique: true, 
+        unique: true,
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email address should be valid.'], 
         required: true 
     }, 
     password: {
