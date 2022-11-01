@@ -21,16 +21,29 @@ mong.connect(url).then(() => {
         });
       });
 
-      app.get("/lists", async (req, res) => {
+      app.get("/posts", async (req, res) => {
+        const page = req.query.page || 1 , per_page = req.query.per_page || 3 , offset = (page - 1) * per_page;
+
         if ( req.body ) { 
-          const posts = await blogPosts.find().populate("author");
-          res.send(posts);
+          const posts = await blogPosts.find().sort({_id: -1}).populate("author").limit(per_page).skip(offset);
+          res.send({
+             data: posts,
+             page, 
+             per_page
+          });
         }
         else {
            res.send('data not found.');
            return 0;  
         }
       })
+
+      app.post('/posts' , async (req , res) => {
+          const { page } = await req.body; 
+          res.send({
+             page: page
+          })
+      }); 
 
     app.get('/spec/:id' , async (req , res) => {
            const data = await blogPosts.findOne({_id: req.params['id']}).populate("author");  
