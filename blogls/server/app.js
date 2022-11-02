@@ -22,14 +22,15 @@ mong.connect(url).then(() => {
       });
 
       app.get("/posts", async (req, res) => {
-        const page = req.query.page || 1 , per_page = req.query.per_page || 3 , offset = (page - 1) * per_page;
-
-        if ( req.body ) { 
-          const posts = await blogPosts.find().sort({_id: -1}).populate("author").limit(per_page).skip(offset);
+        const pageNumber = req.query.page || 1 , perPage = req.query.perPage || 3 , offset = (pageNumber - 1) * perPage;
+        const totalPage = await blogPosts.find({}).count() , pages = Math.ceil(totalPage / perPage); 
+        if (req.body) { 
+          const posts = await blogPosts.find({}).sort({_id: -1}).populate("author").skip(offset).limit(perPage);
           res.send({
              data: posts,
-             page, 
-             per_page
+             pageNumber, 
+             perPage,
+             pages, 
           });
         }
         else {
@@ -38,10 +39,10 @@ mong.connect(url).then(() => {
         }
       })
 
-      app.post('/posts' , async (req , res) => {
-          const { page } = await req.body; 
+      app.put("/posts" , async (req , res) => {
+          const { page } = req.body;  
           res.send({
-             page: page
+             pageNumber: page
           })
       }); 
 

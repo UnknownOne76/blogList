@@ -27,12 +27,13 @@ export const Post = () => {
                 publishedAt: new Date().toISOString(), 
                 userId: id
             }).then((res) => {
-                console.log(res); 
-                setLnk(''); 
-                setTitle(''); 
-                setDesc(''); 
-                setTxt(''); 
+                console.log(res);  
             }).catch((e) => console.log(e)); 
+            
+            setLnk(''); 
+            setTitle(''); 
+            setDesc(''); 
+            setTxt(''); 
         }
         else {
             alert("Must fill out the fields to post."); 

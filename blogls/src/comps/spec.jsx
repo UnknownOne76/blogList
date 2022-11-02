@@ -1,8 +1,12 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; 
+import { FsContext } from "../context/fsCont";
 
 export const SpecPost = () => {
+   const { page , per } = useContext(FsContext); 
+
     const [spec , setSpec] = useState(null); 
     const [user , setUser] = useState(null); 
     const [txt , setTxt] = useState(''); 
@@ -75,7 +79,7 @@ export const SpecPost = () => {
                    </div>
                  }) : <div> Loading comments... </div>}
              </div>
-             <button onClick={() => window.location.href = '/'} className="p-5"> Go back </button>
+             <button onClick={() => window.location.href = `/main?page=${page}&perPage=${per}`} className="p-5"> Go back </button>
              </div>
           : <div> Not found. </div>} 
           </div>
