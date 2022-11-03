@@ -9,7 +9,7 @@ export const FsContextPrv = ({children}) => {
     let query = useQuery();
     const [ data , setData] = useState(null); 
     const [page , setPage] = useState(Number(query.get('page')));
-    const [per , setPer] = useState(Number(query.get('perPage')) || 3);
+    const [per , setPer] = useState(Number(query.get('perPage')));
     const [maxPage , setMaxPage] = useState(null);   
 
     useEffect(() => {
