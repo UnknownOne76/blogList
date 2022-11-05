@@ -43,7 +43,7 @@ export const SignIn = () => {
         <input style={{backgroundColor: 'black' , color: "white"}} type={"email"} placeholder="Type your email" className="m-5 rounded-full p-2" onChange={(e) => setEmail(e.target.value)} value={email}/>
         <input style={{backgroundColor: 'black' , color: "white"}} type={"password"} placeholder="Type your password" className="m-5 rounded-full p-2" onChange={(e) => setPass(e.target.value)} value={pass}/>
         <button style={{backgroundColor: "black" , color: "white" , width: '8vw' , padding: '0.1vw'}} className="rounded-full" onClick={() => signIn()}> Sign in </button>
-        <button style={{backgroundColor: "black" , color: "white" , width: '8vw' , padding: '0.1vw'}} className="rounded-full mt-5" onClick={() => window.location.href = '/'}> Sign Up </button>
+        <button style={{backgroundColor: "black" , color: "white" , width: '8vw' , padding: '0.1vw'}} className="rounded-full mt-5" onClick={() => window.location.href = '/signUp'}> Sign Up </button>
         </div>
     </div>
 }; 
