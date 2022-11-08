@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; 
 import { FsContext } from "../context/fsCont";
+import API from "../utils/api";
 
 export const SpecPost = () => {
    const { page , per } = useContext(FsContext); 
@@ -12,11 +12,11 @@ export const SpecPost = () => {
     const [txt , setTxt] = useState(''); 
     let { id } = useParams();  
     useEffect(() => {
-            axios.get(`/spec/${id}`).then((res) => {
+            API.get(`/spec/${id}`).then((res) => {
                 setSpec(res.data);  
             }); 
 
-            axios.post('/userDet', {
+            API.post('/userDet', {
                token: window.localStorage.getItem("token"), 
             }).then((res) => {
                setUser(res.data);  
@@ -25,7 +25,7 @@ export const SpecPost = () => {
 
     const addCmt = () => {
        if ( txt.trim() !== '') {
-           axios.post(`/addComment/${id}` , {
+           API.post(`/addComment/${id}` , {
               img: user.img, 
               name: user.name, 
               txt: txt

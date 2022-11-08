@@ -1,6 +1,6 @@
-import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
+import API from "../utils/api";
 
 export const FsContext = createContext({}); 
 
@@ -14,7 +14,7 @@ export const FsContextPrv = ({children}) => {
 
     useEffect(() => {
         if ( page === 0) return setPage(1); 
-        axios.get(`/posts?page=${page}&perPage=${per}`).then((res) => {
+        API.get(`/posts?page=${page}&perPage=${per}`).then((res) => {
             setData(res.data.data);  
             setMaxPage(res.data.pages); 
         });

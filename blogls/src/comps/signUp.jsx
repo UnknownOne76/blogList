@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import API from "../utils/api";
 
 export const SignUp = () => {
 
@@ -15,7 +15,7 @@ export const SignUp = () => {
                return alert(`That's the longest name i've ever seen.`);
             }
             else {
-                await axios.post('/users' , {
+                await API.post('/users' , {
                     name: name, 
                     email: email, 
                     password: pass, 

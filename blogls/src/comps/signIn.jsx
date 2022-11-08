@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import API from "../utils/api";
 
 export const SignIn = () => {
     const [email , setEmail] = useState(''); 
@@ -7,7 +7,7 @@ export const SignIn = () => {
 
     const signIn = async () => {
         if ( email !== '' && pass !== '') {
-            await axios.post('/login' , {
+            await API.post('/login' , {
                 email: email, 
                 password: pass
             }).then((res) => {

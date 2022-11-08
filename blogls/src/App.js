@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import './App.css';
 import { FsContext } from './context/fsCont';
+import API from './utils/api';
 
 function App() {
   const { data , page , setPage , maxPage , per } = useContext(FsContext); 
@@ -33,7 +33,7 @@ function App() {
     
   const prevPage = async () => {
     setPage((Number(page) - 1)); 
-    axios.put('/posts' , {
+    API.put('/posts' , {
       pageNumber: page
      }).then(() => {
         return window.location.href = `/main?page=${page - 1}&perPage=${per}`; 
@@ -42,7 +42,7 @@ function App() {
     
     const nextPage = async () => {
       setPage(((Number(page) + 1))); 
-      await axios.put('/posts' , {
+      await API.put('/posts' , {
         pageNumber: page
       }).then(() => {
           return window.location.href = `/main?page=${page + 1}&perPage=${per}`; 

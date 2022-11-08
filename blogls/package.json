@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://firstsrv-1pef0n9im-unknownone76.vercel.app/",
-  "homepage": "/main",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -25,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

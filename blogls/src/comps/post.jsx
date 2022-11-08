@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import API from "../utils/api";
 
 export const Post = () => {
 
@@ -10,14 +10,14 @@ export const Post = () => {
     let id; 
     
     const postDat = async () => {
-        await axios.post('/userDet', {
+        await API.post('/userDet', {
             token: window.localStorage.getItem("token"), 
          }).then((res) => {
             id = res.data._id;  
          }); 
 
         if ( lnk !== null && title !== null && desc !== null && txt !== null) {
-            await axios.post('/post', {
+            await API.post('/post', {
                 title: title,
                 descrip: desc, 
                 txt: txt, 

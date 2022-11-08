@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import API from "../utils/api";
 
 export const UploadCenter = () => {
     const [file , setFile] = useState('');
@@ -8,7 +8,7 @@ export const UploadCenter = () => {
     const uploadIt = async () => {
             if ( file === '') return 0; 
             formData.append('file' , file); 
-            await axios.post('/upload' , formData).then((res) => console.log(res));   
+            await API.post('/upload' , formData).then((res) => console.log(res));   
     }; 
 
     return (    
