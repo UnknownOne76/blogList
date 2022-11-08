@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import API from "../utils/api";
 
 export const Post = () => {
@@ -43,6 +44,7 @@ export const Post = () => {
          <input style={{backgroundColor: 'black' , color: "white"}} placeholder="type descripion for content" className="m-5 rounded-full p-2 w-2/12" onChange={(e) => setDesc(e.target.value)}/>
          <input style={{backgroundColor: 'black' , color: "white"}} placeholder="type all the text inside content" className="m-5 rounded-full p-2 w-2/12" onChange={(e) => setTxt(e.target.value)}/>
          <button style={{backgroundColor: 'black' , color: "white", width: '5vw'}} className="rounded-full mt-5 p-2" onClick={() => postDat()}> Post data </button>
+         <Link to="/" className="m-5"> Go back </Link>
     </div>
 }; 
 

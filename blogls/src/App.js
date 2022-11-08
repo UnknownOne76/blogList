@@ -36,7 +36,7 @@ function App() {
     API.put('/posts' , {
       pageNumber: page
      }).then(() => {
-        return window.location.href = `/main?page=${page - 1}&perPage=${per}`; 
+        return window.location.href = `/?page=${page - 1}&perPage=${per}`; 
      });
     };
     
@@ -45,7 +45,7 @@ function App() {
       await API.put('/posts' , {
         pageNumber: page
       }).then(() => {
-          return window.location.href = `/main?page=${page + 1}&perPage=${per}`; 
+          return window.location.href = `/?page=${page + 1}&perPage=${per}`; 
       });
     };
 

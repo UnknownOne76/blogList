@@ -79,7 +79,7 @@ export const SpecPost = () => {
                    </div>
                  }) : <div> Loading comments... </div>}
              </div>
-             <button onClick={() => window.location.href = `/main?page=${page}&perPage=${per}`} className="p-5"> Go back </button>
+             <button onClick={() => window.location.href = `/?page=${page}&perPage=${per}`} className="p-5"> Go back </button>
              </div>
           : <div> Loading. </div>} 
           </div>

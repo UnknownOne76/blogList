@@ -19,7 +19,7 @@ root.render(
     <BrowserRouter> 
     <FsContextPrv>
     <Routes>
-    <Route exact path='/main' element={loggedIn ? <App /> : <SignUp />}/>
+    <Route exact path='/' element={loggedIn ? <App /> : <SignUp />}/>
     <Route path='/uploads' element={<UploadCenter />}/>
     <Route path='/login' element={localStrg.getItem("isLoggedIn") === null || false ? <SignIn /> : <App />}/>
     <Route path='/post' element={loggedIn ? <Post/> : <SignUp />}/>

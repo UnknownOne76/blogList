@@ -25,7 +25,7 @@ export const SignIn = () => {
                     window.localStorage.setItem("token", res.data.token); 
                     window.localStorage.setItem("isLoggedIn" , true); 
                     setTimeout(() => {
-                        window.location.href = '/main'; 
+                        window.location.href = '/'; 
                     }, 1500); 
                 }
             }).catch((err) => console.log(err)); 
