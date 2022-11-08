@@ -2,7 +2,7 @@
   "name": "blogls",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3030/",
+  "proxy": "https://firstsrv-1pef0n9im-unknownone76.vercel.app/",
   "homepage": "/main",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
 import { FsContext } from './context/fsCont';
 
@@ -11,9 +10,10 @@ function App() {
 
   const signOut = () => {
      alert("Signout out. Have a nice day!"); 
-    window.localStorage.removeItem("isLoggedIn"); 
-    return window.location.href = '/login'; 
-  }
+    window.localStorage.removeItem('isLoggedIn'); 
+    window.localStorage.removeItem('token'); 
+    return window.location.href = '/login';  
+  };
 
   useEffect(() => {
       if ( page >= maxPage && maxPage !== null) { 
@@ -54,7 +54,6 @@ function App() {
       <div className='flex flex-col items-center w-full'> 
       <div className='text-3xl font-bold'> Blog Posts </div>
       <div className='w-auto'> Latest updates of tiny projects. </div>
-      <Link to={"/uploads"}> Uploads </Link>
       <div className='flex w-full justify-center items-center'> 
       <button style={{backgroundColor: 'black' , color: "white", width: '5vw'}} className="rounded-full mt-5 p-2 mr-5" onClick={() => signOut()}> Sign out </button>
       <button style={{backgroundColor: 'black' , color: "white", width: '5vw'}} className="rounded-full mt-5 p-2" onClick={() => window.location.href = '/post'}> Post center </button>

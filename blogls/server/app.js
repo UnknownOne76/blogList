@@ -1,5 +1,5 @@
 const exp = require('express') , mong = require('mongoose') , cors = require('cors'); 
-const app = exp() , port = 3030 , url = 'mongodb://localhost:27017/blogPosts'; 
+const app = exp() , url = 'mongodb+srv://uk_76:uk_76@firstdatabase.asyfgny.mongodb.net/?retryWrites=true&w=majority'; 
 const postRt = require('./routes/postRouter');
 const userRt = require('./routes/userData');
 const uploadRt = require('./routes/uploadRt');
@@ -13,8 +13,6 @@ app.use(fileUpload());
 
 mong.connect(url).then(() => {
     console.log('Connected Successfully.'); 
-
-    app.listen(port , () => {
-        console.log(`Started on localhost:${port}`); 
-    });
 }); 
+
+module.exports = app; 
