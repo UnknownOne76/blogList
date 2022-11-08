@@ -10,7 +10,6 @@ export const Post = () => {
     let id; 
     
     const postDat = async () => {
-
         await axios.post('/userDet', {
             token: window.localStorage.getItem("token"), 
          }).then((res) => {
@@ -28,21 +27,14 @@ export const Post = () => {
                 userId: id
             }).then((res) => {
                 console.log(res);  
+                window.location.href = '/post'; 
             }).catch((e) => console.log(e)); 
-            
-            setLnk(''); 
-            setTitle(''); 
-            setDesc(''); 
-            setTxt(''); 
-        }
-        else {
+            }
+            else {
             alert("Must fill out the fields to post."); 
-            setTxt(''); 
-            setLnk(''); 
-            setDesc(''); 
-            setTitle(''); 
-        }
-    }; 
+            window.location.href = '/post'; 
+            }
+        }; 
 
     return <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center"> 
          <div className="font-bold text-2xl"> Blog post center </div>
